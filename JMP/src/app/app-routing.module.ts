@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { SkillsModule } from './skills/skills.module';
 import { ProjectsModule } from './projects/projects.module';
 import { ResumeModule } from './resume/resume.module';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     { path: 'projects', loadComponent: () => import('./projects/projects.module').then(m => m.ProjectsModule) },
@@ -15,12 +15,14 @@ const routes: Routes = [
     imports: [
         SkillsModule,
         ProjectsModule,
-        ResumeModule
+        ResumeModule,
+        RouterModule.forRoot(routes)
     ],
     exports: [
         SkillsModule,
         ProjectsModule,
-        ResumeModule
+        ResumeModule,
+        RouterModule
     ]
 })
 export class AppRoutingModule {}
