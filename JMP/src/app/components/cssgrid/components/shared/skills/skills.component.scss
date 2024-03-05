@@ -1,0 +1,23 @@
+.acquired {
+    border: .1rem solid lightblue;
+    background-color: lightblue;
+}
+
+.not-acquired {
+    border: .1rem solid rosybrown;
+    background-color: rosybrown;
+}
+
+.skillName {
+    padding: 1rem;
+    border: .1rem solid white;
+    background-color: white;
+}
+
+.acquired, .not-acquired {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    display: inline-block;
+}

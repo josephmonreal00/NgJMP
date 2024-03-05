@@ -1,0 +1,19 @@
+<div *ngFor="let exp of experiences | async">
+    <h1 *ngIf="exp.company == 'U-Haul'">{{ exp.company }} ({{ exp.started | date }} - Present)</h1>
+    <h1 *ngIf="exp.company != 'U-Haul'">{{ exp.company }} ({{ exp.started | date}} - {{ exp.ended | date}})</h1>
+    <h3>{{ exp.title }}</h3>
+
+    <table>
+        <ul *ngFor="let d of exp.description">
+            <li>{{ d }}</li>
+        </ul>
+    </table>
+
+    <div *ngFor="let skill of exp.skills">
+        <skills-component [skillName]="skill.skillName" [yearStarted]="skill.yearStarted" [yearsToDate]="skill.yearsToDate"
+            [yearsTotal]="skill.totalYears"></skills-component>
+        <br>
+    </div>
+</div>
+
+

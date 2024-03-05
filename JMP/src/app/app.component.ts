@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToggleView } from './shared/enums/toggle-view.enum';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'JMP';
+
+  public toggleViewSelectedFromParent: ToggleView = ToggleView.GRID;
+
+  public toggleView(view: ToggleView): void {
+    this.toggleViewSelectedFromParent = view;
+    console.log(view);
+  }
 }

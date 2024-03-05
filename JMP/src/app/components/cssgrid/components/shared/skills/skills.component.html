@@ -1,0 +1,6 @@
+<span class="skillName">{{ skillName }}</span>
+<span *ngFor="let b of yearBlocks">
+    <span class="{{b.class}}" *ngIf="b.filledIn">{{ b.year }}</span>
+    <span class="{{b.class}}" *ngIf="!b.filledIn">{{ b.year }}</span>
+</span>
+<br>
