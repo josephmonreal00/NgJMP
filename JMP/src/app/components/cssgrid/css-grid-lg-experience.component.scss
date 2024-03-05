@@ -1,0 +1,158 @@
+// -- START -- Screen Size (LG) Grandparent -- START --
+@mixin wrapperlg() {
+    display: grid;
+    justify-content: stretch;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    height: 100vh;
+    background-color: aquamarine;
+}
+
+// -- START -- Screen Size (LG) Parents -- START --
+@mixin wrapped-header-lg() {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: center;
+    text-align: center;
+    background-color: burlywood;
+    height: 100%;
+}
+
+@mixin wrapped-nav-lg() {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 12;
+    background-color: slateblue;
+}
+
+@mixin wrapped-content-lg() {
+    overflow: scroll;
+    justify-self: stretch;
+    grid-column-start: 3;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 12;
+    background-color: antiquewhite;
+}
+
+@mixin wrapped-footer-lg() {
+    justify-self: center;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 12;
+    grid-row-end: -1;
+    background-color: plum;
+    height: 100%;
+}
+
+// -- START -- Screen Size (LG) Nav Children -- START --
+@mixin nav--list--lg() {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    list-style: none;
+    height: 20%;
+    padding: 0;
+    margin: 0;
+    background-color: cadetblue;
+}
+
+@mixin nav--list--first--child--lg() {
+    place-self: start stretch;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+@mixin nav--list--second--child--lg() {
+    place-self: start stretch;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+@mixin nav--list--third--child--lg() {
+    place-self: start stretch;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+@mixin nav--list--fourth--child--lg() {
+    place-self: start stretch;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 4;
+    grid-row-end: -1;
+}
+
+// iPad, Laptops, Desktops
+@media (min-width: 787px) {
+    #wrapper {
+        @include wrapperlg();
+
+        #wrapped_header {
+            @include wrapped-header-lg();
+
+            & h1 {
+                font-size: 3.4rem;
+                font-weight: 100;
+                letter-spacing: 2px;
+            }
+
+            & h2 {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    #wrapped_navigation {
+        @include wrapped-nav-lg();
+
+        #wrapped_navigation_list {
+            @include nav--list--lg();
+
+            li {
+                font-size: 2.4rem;
+                font-weight: 100;
+                background-color: antiquewhite;
+
+                a {
+                    text-decoration: none;
+                }
+
+                &:nth-child(1) {
+                    @include nav--list--first--child--lg();
+                }
+
+                &:nth-child(2) {
+                    @include nav--list--second--child--lg();
+                }
+
+                &:nth-child(3) {
+                    @include nav--list--third--child--lg();
+                }
+
+                &:nth-child(4) {
+                    @include nav--list--fourth--child--lg();
+                }
+            }
+        }
+    }
+
+    #wrapped_content {
+        @include wrapped-content-lg();
+    }
+
+    #wrapped_footer {
+        @include wrapped-footer-lg();
+    }
+}

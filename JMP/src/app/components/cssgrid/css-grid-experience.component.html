@@ -1,0 +1,29 @@
+<div id="wrapper">
+    <div id="wrapped_header">
+        <h1>Joseph Monreal</h1>
+        <h2>
+            <a href="/">LIFE & TIMES of a REGULAR JOE</a>
+        </h2>
+    </div>
+
+    <div id="wrapped_navigation">
+        <ul id="wrapped_navigation_list">
+            <li><a (click)="routeTo('about')">About</a></li>
+            <li><a (click)="routeTo('contact')">Contact</a></li>
+            <li><a (click)="routeTo('experience')">Experience</a></li>
+            <li><a (click)="routeTo('projects')">Projects</a></li>
+        </ul>
+    </div>
+
+    <div id="wrapped_content" [ngSwitch]="urlSegment">
+        <about-component *ngSwitchCase="match_about"></about-component>
+        <contact-component *ngSwitchCase="match_contact"></contact-component>
+        <experience-component *ngSwitchCase="match_experience"></experience-component>
+        <projects-component *ngSwitchCase="match_projects"></projects-component>
+        <about-component *ngSwitchDefault></about-component>
+    </div>
+
+    <div id="wrapped_footer">
+        <p>footer</p>
+    </div>
+</div>

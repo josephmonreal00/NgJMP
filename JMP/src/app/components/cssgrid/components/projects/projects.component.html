@@ -1,0 +1,17 @@
+<div *ngIf="projectFeatureState != null">
+    <div *ngFor="let project of projects">
+        <h1>{{ project.name }}</h1>
+        <h5>Project Type: {{ project.type }}</h5>
+        <table>
+            <ul *ngFor="let d of project.description">
+                <li>{{d}}</li>
+            </ul>
+        </table>
+
+        <div *ngFor="let tech of project.technologies">
+            <skills-component [skillName]="tech" [yearStarted]="2021"
+                [yearsToDate]="3" [yearsTotal]="3"></skills-component>
+            <br>
+        </div>
+    </div>
+</div>
